@@ -1,0 +1,35 @@
+<div class="customer-form">
+  <div class="customer-form-container">
+    <h2 class="customer-form-container__title">Manage accounts</h2>
+    <ng-container *ngIf="accounts.length > 0">
+      <p>
+        {{ client?.fullName }} has an account with the following details.
+      </p>
+      <div class="customer-form-container__accounts">
+        <div class="customer-form-container__account__item" *ngFor="let account of accounts">
+          <div>
+            <span>Account Number</span>
+            <div class="customer-form-container__account__item--number" >{{ account.accountNumber }}</div>
+          </div>
+          <div>
+            <span>Status</span>
+            <div *ngIf="account.status === 'ACTIVE'" class="customer-form-container__account__item--status-active" >{{ account.status }}</div>
+            <div *ngIf="account.status === 'INACTIVE'" class="customer-form-container__account__item--status-inactive" >{{ account.status }}</div>
+          </div>
+
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!accounts.length">
+      <div class="account-empty--cont" >
+        <p>{{ client?.fullName }} does not have any accounts yet. </p>
+        <button class="submit-btn" (click)="requestAccount()">Request</button>
+      </div>
+    </ng-container>
+    <div class="customer-form-container__btn-cont">
+      <button type="button" class="cancel-btn" (click)="cancelForm()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>

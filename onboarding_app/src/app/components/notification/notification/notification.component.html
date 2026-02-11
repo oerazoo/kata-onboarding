@@ -1,0 +1,10 @@
+<div class="notifications">
+  <div
+    *ngFor="let n of notifications"
+    class="notification"
+    [ngClass]="n.type"
+  >
+    <span>{{ n.message }}</span>
+    <button (click)="close(n.id)">×</button>
+  </div>
+</div>

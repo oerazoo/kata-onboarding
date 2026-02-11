@@ -1,0 +1,100 @@
+.customer-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(80, 80, 80, 0.498);
+  backdrop-filter: blur(3px);
+}
+
+.customer-form-container{
+
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+
+  &__form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+
+    label{
+      margin-bottom: 0.3rem;
+      font-size: 0.8rem;
+    }
+
+    input, select{
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    &--error{
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+  }
+
+  &__btn-cont{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+
+
+
+
+  }
+}
+
+
+.customer-form-container__account__item{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  border-radius: 5px;
+
+  span{
+    font-size: 0.7rem;
+    color: gray;
+  }
+
+  &--number{
+    padding: 2px 0;
+  }
+
+  &--status-active{
+    background-color: rgb(138, 255, 185);
+    color: rgb(0, 128, 94);
+    padding: 2px 5px;
+    border-radius: 5px;
+
+  }
+  &--status-inactive{
+    background-color: rgb(254, 229, 229);
+    color: red;
+    padding: 2px 5px;
+    border-radius: 5px;
+  }
+}
+
+
+.account-empty--cont{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3px;
+
+  button{
+    height: 35px;
+  }
+}

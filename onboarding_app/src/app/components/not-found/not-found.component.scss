@@ -1,0 +1,14 @@
+
+.not-found__cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  height: 50vh;
+
+  img{
+    height: 100px;
+    width: 100px;
+  }
+}

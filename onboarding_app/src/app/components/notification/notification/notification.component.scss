@@ -1,0 +1,47 @@
+.notifications {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+
+
+}
+
+.notification {
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 20000;
+  background-color: white;
+  border: 1px solid whitesmoke;
+
+  &.success {
+    color: #155724;
+    border-bottom: 3px solid #155724;
+  }
+
+  &.error {
+    color: #9f1e2b;
+    border-bottom: 3px solid #9f1e2b;
+  }
+
+  &.warning {
+    color: #f3c15c;
+    border-bottom: 3px solid #f3c15c;
+  }
+
+  &.info{
+    color: #0665be;
+    border-bottom: 3px solid #0665be;
+  }
+}
+
+button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}

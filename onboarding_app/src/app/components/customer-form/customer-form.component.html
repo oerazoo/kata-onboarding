@@ -1,0 +1,38 @@
+<div class="customer-form" >
+
+  <div class="customer-form-container">
+    <h2 class="customer-form-container__title" >New Customer</h2>
+    <form [formGroup]="customerForm" class="customer-form-container__form" >
+      <div class="customer-form-container__form-group" >
+        <label for="name" class="customer-form-container__form-group--label" >Name</label>
+        <input type="text" id="name" name="name" class="customer-form-container__form-group--input" formControlName="fullName">
+        <p *ngIf="customerForm.get('fullName')?.invalid && customerForm.get('fullName')?.touched" class="customer-form-container__form-group--error" >This field is mandatory.</p>
+      </div>
+      <div class="customer-form-container__form-group" >
+        <label for="email" class="customer-form-container__form-group--label" >Email</label>
+        <input type="email" id="email" name="email" class="customer-form-container__form-group--input" formControlName="email">
+        <p *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched" class="customer-form-container__form-group--error" >This field is mandatory.</p>
+      </div>
+      <div class="customer-form-container__form-group" >
+        <label for="documentType" class="customer-form-container__form-group--label" >Document type</label>
+        <select name="documentType" id="documentType" class="customer-form-container__form-group--input" formControlName="documentType">
+          <option value="" disabled selected>Select document type</option>
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="CE">Cédula de extranjería</option>
+          <option value="PAS">Pasaporte</option>
+        </select>
+        <!-- <input type="text" id="documentType" name="documentType" class="customer-form-container__form-group--input" formControlName="documentType"> -->
+        <p *ngIf="customerForm.get('documentType')?.invalid && customerForm.get('documentType')?.touched" class="customer-form-container__form-group--error" >This field is mandatory.</p>
+      </div>
+      <div class="customer-form-container__form-group" >
+        <label for="documentNumber" class="customer-form-container__form-group--label" >Document number</label>
+        <input type="text" id="documentNumber" name="documentNumber" class="customer-form-container__form-group--input" formControlName="documentNumber">
+        <p *ngIf="customerForm.get('documentNumber')?.invalid && customerForm.get('documentNumber')?.touched" class="customer-form-container__form-group--error" >This field is mandatory.</p>
+      </div>
+      <div class="customer-form-container__btn-cont" >
+        <button type="submit" class="submit-btn" (click)="submitForm()" >Save</button>
+        <button type="button" class="cancel-btn" (click)="cancelForm()" >Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

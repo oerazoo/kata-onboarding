@@ -1,0 +1,48 @@
+<div class="customer__cont">
+  <div class="customer__header">
+    <h1 class="customer__header--title">Customers</h1>
+    <button class="submit-btn" (click)="onAddCustomer()">New Customer</button>
+  </div>
+  <div class="customer__list">
+    <div class="customer__list--item" *ngFor="let customer of customers">
+      <img
+      class="customer__list--item-img"
+        src="https://www.gravatar.com/avatar/{{ customer.fullName }}?d=mp&s=50"
+        alt="{{ customer.fullName }}"
+      />
+      <div class="customer__list--item--field-cont">
+        <span>Name</span>
+        <p class="customer__list--item-name">{{ customer.fullName }}</p>
+      </div>
+      <div class="customer__list--item--field-cont">
+        <span>Email</span>
+        <p class="customer__list--item-email">{{ customer.email }}</p>
+      </div>
+      <div class="customer__list--item--actions-list">
+        <button
+        class="detail-btn"
+        (click)="onEditCustomer(customer)"
+        >
+          <div class="detail-btn--txt" >
+            Accounts
+          </div>
+          <div class="detail-btn--img" >
+            <svg width="30px" height="30px"  viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z" stroke="#f5f5f5" stroke-width="1.5"></path> <path d="M10 16.5H6" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M8 13.5H6" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M2 10L22 10" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14 15C14 14.0572 14 13.5858 14.2929 13.2929C14.5858 13 15.0572 13 16 13C16.9428 13 17.4142 13 17.7071 13.2929C18 13.5858 18 14.0572 18 15C18 15.9428 18 16.4142 17.7071 16.7071C17.4142 17 16.9428 17 16 17C15.0572 17 14.5858 17 14.2929 16.7071C14 16.4142 14 15.9428 14 15Z" stroke="#f5f5f5" stroke-width="1.5"></path> </g></svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <ng-container *ngIf="!customers.length">
+      <app-not-found />
+    </ng-container>
+  </div>
+  <ng-container *ngIf="isAddingCustomer">
+    <app-customer-form
+      (onSubmit)="sendCustomerData($event)"
+    ></app-customer-form>
+  </ng-container>
+  <ng-container *ngIf="isModifyingAccounts">
+    <app-customer-accounts [client]="customerSelected" (onSubmit)="submitCustomerAccounts()" ></app-customer-accounts>
+  </ng-container>
+</div>
+<app-notification></app-notification>
