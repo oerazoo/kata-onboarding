@@ -62,6 +62,7 @@ export class AppComponent implements OnInit {
         (response) => {
           this.loadCustomers();
           this.isAddingCustomer = false;
+          this.notify.success('Customer added successfully');
         },
         (error) => {
           // this.notify.error('Server not responding');
