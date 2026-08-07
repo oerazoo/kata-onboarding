@@ -28,4 +28,7 @@ public class Customer {
 
     @Column(nullable = false)
     private String email;
+
+    @Column
+    private String password;
 }

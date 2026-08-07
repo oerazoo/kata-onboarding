@@ -27,4 +27,7 @@ public class Account {
     @Column
     private AccountStatus status;
 
+    @Column
+    private Double balance;
+
 }
